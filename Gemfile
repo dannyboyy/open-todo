@@ -13,6 +13,7 @@ gem 'haml-rails'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'active_model_serializers' 
+gem 'rest-client', '~> 1.7.2'
 
 group :development, :test do
   gem 'pry'

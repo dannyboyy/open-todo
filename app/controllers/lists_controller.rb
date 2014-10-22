@@ -4,6 +4,10 @@ class ListsController < ApplicationController
 
   def show
     @items = @list.items.completed
+    respond_to do |format|
+      format.html
+      format.json { render json: @list }
+    end
   end
 
   def new
