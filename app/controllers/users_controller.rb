@@ -3,19 +3,13 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-
-    respond_to do |format|
-      format.html
-      format.json { render json: @users }
-    end
+    render json: @users
   end
 
   def show
     @lists = @user.lists
-    respond_to do |format|
-      format.html
-      format.json { render json: @user }
-    end
+    
+    render json: @user
   end
 
   def new
@@ -27,9 +21,9 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-
+    
     if @user.save
-      redirect_to @user, notice: 'User was successfully created.'
+      render json: @user, status: 201
     else
       render action: 'new'
     end

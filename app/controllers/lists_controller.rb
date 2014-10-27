@@ -4,10 +4,7 @@ class ListsController < ApplicationController
 
   def show
     @items = @list.items.completed
-    respond_to do |format|
-      format.html
-      format.json { render json: @list }
-    end
+    render json: @list, status: 200
   end
 
   def new
@@ -19,6 +16,7 @@ class ListsController < ApplicationController
 
   def index
     @lists = @user.lists
+    render json: @lists, status: 200
   end
 
   def create
