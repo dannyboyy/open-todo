@@ -18,6 +18,7 @@ gem 'rest-client', '~> 1.7.2'
 group :development, :test do
   gem 'pry'
   gem 'binding_of_caller'
+  gem 'spring'
 end
 
 group :test do

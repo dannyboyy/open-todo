@@ -4,7 +4,7 @@ class ListsController < ApplicationController
 
   def show
     @items = @list.items.completed
-    render json: @list, status: 200
+    render json: @items, status: 200
   end
 
   def new
