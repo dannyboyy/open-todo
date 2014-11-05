@@ -4,10 +4,12 @@ Todo::Application.routes.draw do
   end
 
   resources :lists, only: [] do
-    resources :items, only: [:create, :new]
+    resources :items
   end
 
   resources :items, only: [:destroy]
+
+  resources :sessions, only: [:create]
 
   root to: 'users#new'
 end

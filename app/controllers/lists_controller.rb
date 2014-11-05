@@ -4,7 +4,6 @@ class ListsController < ApplicationController
 
   def show
     @items = @list.items.completed
-    render json: @items, status: 200
   end
 
   def new
@@ -24,7 +23,7 @@ class ListsController < ApplicationController
     @list.user_id = @user.id
 
     if @list.save
-      redirect_to user_list_path(@user, @list), notice: 'List was successfully created.'
+      redirect_to user_list_path(@user, @list), notice: 'List was successfully saved.'
     else
       render action: 'new'
     end
@@ -40,7 +39,7 @@ class ListsController < ApplicationController
 
   def destroy
     @list.destroy
-    redirect_to @user
+    render action: 'index'
   end
 
   private
